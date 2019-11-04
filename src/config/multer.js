@@ -39,9 +39,9 @@ const storageTypes = {
 module.exports = {
   dest: path.resolve(__dirname, "..", "..", "tmp"), // é igual a ../../tmp/
   storage: storageTypes[process.env.STORAGE_TYPE],
-  limits: {
-    fileSize: 2 * 1024 * 1024 // 2MB
-  },
+  // limits: {
+  //   fileSize: 2 * 1024 * 1024 // 2MB
+  // },
   fileFilter: (req, file, cb) => {
     const allowedMimes = [
       "image/jpeg",
@@ -50,10 +50,10 @@ module.exports = {
       "image/gif"
     ];
 
-    if (allowedMimes.includes(file.mimetype)) {
-      cb(null, true);
-    } else {
-      cb(new Error("Invalid file type."));
-    }
+    // if (allowedMimes.includes(file.mimetype)) {
+    cb(null, true);
+    // } else {
+    //   cb(new Error("Invalid file type."));
+    // }
   }
 };
